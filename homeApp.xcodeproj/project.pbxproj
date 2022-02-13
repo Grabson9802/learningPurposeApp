@@ -13,6 +13,8 @@
 		66D920E727B876B300684017 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66D920E527B876B300684017 /* Main.storyboard */; };
 		66D920E927B876B400684017 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66D920E827B876B400684017 /* Assets.xcassets */; };
 		66D920EC27B876B400684017 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66D920EA27B876B400684017 /* LaunchScreen.storyboard */; };
+		66D920F427B87D1C00684017 /* ToDoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D920F327B87D1C00684017 /* ToDoListViewController.swift */; };
+		66D920F627B88E0000684017 /* InventoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D920F527B88E0000684017 /* InventoryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		66D920E827B876B400684017 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		66D920EB27B876B400684017 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		66D920ED27B876B400684017 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		66D920F327B87D1C00684017 /* ToDoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListViewController.swift; sourceTree = "<group>"; };
+		66D920F527B88E0000684017 /* InventoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +63,8 @@
 				66D920DF27B876B300684017 /* AppDelegate.swift */,
 				66D920E127B876B300684017 /* SceneDelegate.swift */,
 				66D920E327B876B300684017 /* ViewController.swift */,
+				66D920F327B87D1C00684017 /* ToDoListViewController.swift */,
+				66D920F527B88E0000684017 /* InventoryViewController.swift */,
 				66D920E527B876B300684017 /* Main.storyboard */,
 				66D920E827B876B400684017 /* Assets.xcassets */,
 				66D920EA27B876B400684017 /* LaunchScreen.storyboard */,
@@ -140,7 +146,9 @@
 			files = (
 				66D920E427B876B300684017 /* ViewController.swift in Sources */,
 				66D920E027B876B300684017 /* AppDelegate.swift in Sources */,
+				66D920F627B88E0000684017 /* InventoryViewController.swift in Sources */,
 				66D920E227B876B300684017 /* SceneDelegate.swift in Sources */,
+				66D920F427B87D1C00684017 /* ToDoListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
