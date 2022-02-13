@@ -16,6 +16,7 @@
 		66D920F427B87D1C00684017 /* ToDoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D920F327B87D1C00684017 /* ToDoListViewController.swift */; };
 		66D920F627B88E0000684017 /* InventoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D920F527B88E0000684017 /* InventoryViewController.swift */; };
 		66D9212327B9234700684017 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 66D9212127B9234700684017 /* DataModel.xcdatamodeld */; };
+		66D9212527B94B4200684017 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D9212427B94B4200684017 /* CustomCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		66D920F327B87D1C00684017 /* ToDoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListViewController.swift; sourceTree = "<group>"; };
 		66D920F527B88E0000684017 /* InventoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryViewController.swift; sourceTree = "<group>"; };
 		66D9212227B9234700684017 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		66D9212427B94B4200684017 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				66D920E827B876B400684017 /* Assets.xcassets */,
 				66D920EA27B876B400684017 /* LaunchScreen.storyboard */,
 				66D920ED27B876B400684017 /* Info.plist */,
+				66D9212427B94B4200684017 /* CustomCollectionViewCell.swift */,
 			);
 			path = homeApp;
 			sourceTree = "<group>";
@@ -148,6 +151,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				66D920E427B876B300684017 /* ViewController.swift in Sources */,
+				66D9212527B94B4200684017 /* CustomCollectionViewCell.swift in Sources */,
 				66D920E027B876B300684017 /* AppDelegate.swift in Sources */,
 				66D920F627B88E0000684017 /* InventoryViewController.swift in Sources */,
 				66D9212327B9234700684017 /* DataModel.xcdatamodeld in Sources */,
