@@ -13,7 +13,6 @@ class InventoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .secondarySystemBackground
         title = "Inventory"
     }
 }

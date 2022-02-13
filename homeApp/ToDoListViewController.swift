@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 
 class ToDoListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -24,9 +25,12 @@ class ToDoListViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.frame = view.bounds
         
-        view.backgroundColor = .secondarySystemBackground
+        print("fileManager\(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))")
+        
         title = "ToDoList"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
+        
+        loadItems()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -49,7 +53,25 @@ class ToDoListViewController: UIViewController, UITableViewDelegate, UITableView
             tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
         }
         
+        itemArray[indexPath.row].done = !itemArray[indexPath.row].done
+        
+        saveItems()
+        
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            
+            context.delete(itemArray[indexPath.row])
+            itemArray.remove(at: indexPath.row)
+            
+            saveItems()
+        }
     }
     
     @objc func addButtonTapped() {
@@ -78,5 +100,14 @@ class ToDoListViewController: UIViewController, UITableViewDelegate, UITableView
             print("Error saving context\(error)")
         }
         self.tableView.reloadData()
+    }
+    
+    func loadItems() {
+        let request: NSFetchRequest<Item> = Item.fetchRequest()
+        do {
+            itemArray = try context.fetch(request)
+        } catch {
+            print("Error fetching data from context\(error)")
+        }
     }
 }
