@@ -7,12 +7,14 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 class InventoryViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     private var collectionView: UICollectionView?
+    private var itemArray = [ItemCollectionView]()
+    private var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,6 +22,7 @@ class InventoryViewController: UIViewController, UICollectionViewDelegate, UICol
         
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
+        layout.itemSize = CGSize(width: view.frame.size.width, height: view.frame.size.height / 3)
         
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         
@@ -35,10 +38,12 @@ class InventoryViewController: UIViewController, UICollectionViewDelegate, UICol
         collectionView.frame = view.bounds
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewItems))
+        
+        loadItems()
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return itemArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -49,5 +54,35 @@ class InventoryViewController: UIViewController, UICollectionViewDelegate, UICol
     
     @objc func addNewItems() {
         
+        let alert = UIAlertController(title: "Add new toDo", message: "", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Add item", style: .default) { (action) in
+            let newItem = ItemCollectionView(context: self.context)
+            newItem.pushActive = false
+            self.itemArray.append(newItem)
+            self.saveItems()
+        }
+        alert.addTextField { (alertTextField) in
+            alertTextField.placeholder = "Create new item"
+        }
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func saveItems() {
+        do {
+            try context.save()
+        } catch {
+            print("Error saving context\(error)")
+        }
+        self.collectionView?.reloadData()
+    }
+    
+    func loadItems() {
+        let request: NSFetchRequest<ItemCollectionView> = ItemCollectionView.fetchRequest()
+        do {
+            itemArray = try context.fetch(request)
+        } catch {
+            print("Error fetching data from context\(error)")
+        }
     }
 }
