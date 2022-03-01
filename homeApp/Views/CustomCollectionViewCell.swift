@@ -37,7 +37,6 @@ class CustomCollectionViewCell: UICollectionViewCell {
         deleteButton.addSubview(checkmarkLabel)
         checkmarkLabel.translatesAutoresizingMaskIntoConstraints = false
         checkmarkLabel.topAnchor.constraint(equalTo: deleteButton.topAnchor).isActive = true
-        checkmarkLabel.text = "off"
     }
     
     func setupNotificationButton() {

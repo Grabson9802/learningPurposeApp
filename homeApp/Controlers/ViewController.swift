@@ -34,7 +34,7 @@ class ViewController: UIViewController {
         tableViewButton.translatesAutoresizingMaskIntoConstraints = false
         tableViewButton.topAnchor.constraint(equalTo: toDoButton.bottomAnchor, constant: 10).isActive = true
         tableViewButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
-        tableViewButton.setTitle("Table View", for: .normal)
+        tableViewButton.setTitle("Delegates", for: .normal)
         tableViewButton.setTitleColor(.label, for: .normal)
         tableViewButton.addTarget(self, action: #selector(tableViewButtonDidPress), for: .touchUpInside)
     }
@@ -67,7 +67,7 @@ class ViewController: UIViewController {
     }
     
     @objc func tableViewButtonDidPress() {
-        let rootVC = CustomTableView()
+        let rootVC = TestDelegateViewController()
         let navVC = UINavigationController(rootViewController: rootVC)
         present(navVC, animated: true, completion: nil)
     }
