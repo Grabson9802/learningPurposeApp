@@ -15,6 +15,8 @@ class CustomCollectionViewCell: UICollectionViewCell {
     private var isOn = Bool()
     private var imageForNotificationButton = UIImage()
     private var imageViewForNotificationButton = UIImageView(image: UIImage(systemName: "bell.slash"))
+    private var deleteButton = UIButton()
+    private var checkmarkLabel = UILabel()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -22,6 +24,20 @@ class CustomCollectionViewCell: UICollectionViewCell {
         contentView.backgroundColor = .secondarySystemBackground
         
         setupNotificationButton()
+        setupDeleteButton()
+    }
+    
+    func setupDeleteButton() {
+        self.addSubview(deleteButton)
+        deleteButton.translatesAutoresizingMaskIntoConstraints = false
+        deleteButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
+        deleteButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10).isActive = true
+        deleteButton.addTarget(self, action: #selector(deleteButtonPressed), for: .touchUpInside)
+        
+        deleteButton.addSubview(checkmarkLabel)
+        checkmarkLabel.translatesAutoresizingMaskIntoConstraints = false
+        checkmarkLabel.topAnchor.constraint(equalTo: deleteButton.topAnchor).isActive = true
+        checkmarkLabel.text = "off"
     }
     
     func setupNotificationButton() {
@@ -37,6 +53,10 @@ class CustomCollectionViewCell: UICollectionViewCell {
         imageViewForNotificationButton.leadingAnchor.constraint(equalTo: notificationButton.leadingAnchor).isActive = true
         imageViewForNotificationButton.trailingAnchor.constraint(equalTo: notificationButton.trailingAnchor).isActive = true
         imageViewForNotificationButton.bottomAnchor.constraint(equalTo: notificationButton.bottomAnchor).isActive = true
+    }
+    
+    @objc func deleteButtonPressed() {
+        
     }
     
     @objc func notificationButtonPressed() {

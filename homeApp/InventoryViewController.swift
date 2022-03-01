@@ -37,7 +37,7 @@ class InventoryViewController: UIViewController, UICollectionViewDelegate, UICol
         view.addSubview(collectionView)
         collectionView.frame = view.bounds
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewItems))
+        navigationItem.rightBarButtonItems = [UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewItems)), UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editButtonPressed))]
         
         loadItems()
     }
@@ -50,6 +50,10 @@ class InventoryViewController: UIViewController, UICollectionViewDelegate, UICol
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCollectionViewCell.identifier, for: indexPath)
         
         return cell
+    }
+    
+    @objc func editButtonPressed() {
+        
     }
     
     @objc func addNewItems() {
