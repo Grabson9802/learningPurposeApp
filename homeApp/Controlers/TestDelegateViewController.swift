@@ -8,16 +8,14 @@
 import Foundation
 import UIKit
 
-protocol testViewDelegate: AnyObject {
-    func buttonDidChange()
-}
-
 class TestDelegateViewController: UIViewController, testViewDelegate {
     
-    let notification = testView()
+    private let notification = testView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        title = "Delegates"
         
         view.addSubview(notification)
         view.backgroundColor = .systemBlue
@@ -56,7 +54,7 @@ class testView: UIView {
         
         button.addTarget(self, action: #selector(buttonDidPress), for: .touchUpInside)
         button.setTitle("Click on me", for: .normal)
-        button.backgroundColor = .systemGray
+        button.setTitleColor(.label, for: .normal)
     }
     
     @objc func buttonDidPress() {

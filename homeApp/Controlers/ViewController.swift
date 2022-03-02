@@ -9,10 +9,10 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    let notificationButton = UIButton()
-    let toDoButton = UIButton()
-    let inventoryButton = UIButton()
-    let tableViewButton = UIButton()
+    private let notificationButton = UIButton()
+    private let toDoButton = UIButton()
+    private let inventoryButton = UIButton()
+    private let tableViewButton = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +30,7 @@ class ViewController: UIViewController {
         setupTableViewButton()
     }
     
-    func setupTableViewButton() {
+    private func setupTableViewButton() {
         tableViewButton.translatesAutoresizingMaskIntoConstraints = false
         tableViewButton.topAnchor.constraint(equalTo: toDoButton.bottomAnchor, constant: 10).isActive = true
         tableViewButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
@@ -39,7 +39,7 @@ class ViewController: UIViewController {
         tableViewButton.addTarget(self, action: #selector(tableViewButtonDidPress), for: .touchUpInside)
     }
     
-    func setupNotificationButton() {
+    private func setupNotificationButton() {
         notificationButton.translatesAutoresizingMaskIntoConstraints = false
         notificationButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
         notificationButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10).isActive = true
@@ -48,7 +48,7 @@ class ViewController: UIViewController {
         notificationButton.addTarget(self, action: #selector(notificationButtonTapped), for: .touchUpInside)
     }
     
-    func setupToDoListButton() {
+    private func setupToDoListButton() {
         toDoButton.translatesAutoresizingMaskIntoConstraints = false
         toDoButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
         toDoButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
@@ -57,7 +57,7 @@ class ViewController: UIViewController {
         toDoButton.addTarget(self, action: #selector(toDoListButtonTapped), for: .touchUpInside)
     }
     
-    func setupInventoryButton() {
+    private func setupInventoryButton() {
         inventoryButton.translatesAutoresizingMaskIntoConstraints = false
         inventoryButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
         inventoryButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
@@ -77,9 +77,7 @@ class ViewController: UIViewController {
         rootVC.title = "Notification"
         let navVC = UINavigationController(rootViewController: rootVC)
         
-        present(navVC, animated: true) {
-            
-        }
+        present(navVC, animated: true, completion: nil)
     }
     
     @objc func toDoListButtonTapped() {

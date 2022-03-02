@@ -22,13 +22,11 @@ class NotificationViewController: UIViewController, UITableViewDelegate, UITable
     
     private let tableView = UITableView()
     private let pickerView = UIPickerView()
-    let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
-    var settingsArray = [TimeSettings]()
+    private let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
     
-    var callback: (() -> Void)?
-    
-    var hour:Int = 0
-    var minutes:Int = 0
+    private var settingsArray = [TimeSettings]()
+    private var hour:Int = 0
+    private var minutes:Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,11 +36,11 @@ class NotificationViewController: UIViewController, UITableViewDelegate, UITable
         view.addSubview(pickerView)
         view.addSubview(tableView)
         
-        setupPickerViewConstraints()
-        setupTableViewConstraints()
+        setupPickerView()
+        setupTableView()
     }
     
-    func setupTableViewConstraints() {
+    private func setupTableView() {
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
@@ -60,7 +58,7 @@ class NotificationViewController: UIViewController, UITableViewDelegate, UITable
         tableView.rowHeight = 51
     }
     
-    func setupPickerViewConstraints() {
+    private func setupPickerView() {
         pickerView.translatesAutoresizingMaskIntoConstraints = false
         pickerView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         pickerView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
@@ -124,8 +122,6 @@ class NotificationViewController: UIViewController, UITableViewDelegate, UITable
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
         let datePicker = UIDatePicker()
-        
-        
         
         cell.backgroundColor = .blue
         cell.accessoryView = datePicker

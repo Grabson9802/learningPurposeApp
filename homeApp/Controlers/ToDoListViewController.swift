@@ -12,9 +12,10 @@ import CoreData
 
 class ToDoListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    let tableView = UITableView()
-    var itemArray = [Item]()
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    private let tableView = UITableView()
+    
+    private var itemArray = [Item]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +32,24 @@ class ToDoListViewController: UIViewController, UITableViewDelegate, UITableView
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
         
         loadItems()
+    }
+    
+    private func saveItems() {
+        do {
+            try context.save()
+        } catch {
+            print("Error saving context\(error)")
+        }
+        self.tableView.reloadData()
+    }
+    
+    private func loadItems() {
+        let request: NSFetchRequest<Item> = Item.fetchRequest()
+        do {
+            itemArray = try context.fetch(request)
+        } catch {
+            print("Error fetching data from context\(error)")
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -91,23 +110,5 @@ class ToDoListViewController: UIViewController, UITableViewDelegate, UITableView
         }
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
-    }
-    
-    func saveItems() {
-        do {
-            try context.save()
-        } catch {
-            print("Error saving context\(error)")
-        }
-        self.tableView.reloadData()
-    }
-    
-    func loadItems() {
-        let request: NSFetchRequest<Item> = Item.fetchRequest()
-        do {
-            itemArray = try context.fetch(request)
-        } catch {
-            print("Error fetching data from context\(error)")
-        }
     }
 }
