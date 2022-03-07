@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		66256F4827C6D5850000B025 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66256F4727C6D5850000B025 /* NotificationViewController.swift */; };
+		66256F4827C6D5850000B025 /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66256F4727C6D5850000B025 /* PickerViewController.swift */; };
+		669B107B27D6B3ED00017CE3 /* ReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669B107A27D6B3ED00017CE3 /* ReminderViewController.swift */; };
+		669B107D27D6B68800017CE3 /* ReminderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669B107C27D6B68800017CE3 /* ReminderModel.swift */; };
 		66D465B027CEBB2F00BBD927 /* TestDelegateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D465AF27CEBB2F00BBD927 /* TestDelegateViewController.swift */; };
 		66D465B827D007AD00BBD927 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D465B727D007AD00BBD927 /* Protocols.swift */; };
 		66D920E027B876B300684017 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D920DF27B876B300684017 /* AppDelegate.swift */; };
@@ -23,7 +25,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		66256F4727C6D5850000B025 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+		66256F4727C6D5850000B025 /* PickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewController.swift; sourceTree = "<group>"; };
+		669B107A27D6B3ED00017CE3 /* ReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderViewController.swift; sourceTree = "<group>"; };
+		669B107C27D6B68800017CE3 /* ReminderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderModel.swift; sourceTree = "<group>"; };
 		66D465AF27CEBB2F00BBD927 /* TestDelegateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDelegateViewController.swift; sourceTree = "<group>"; };
 		66D465B727D007AD00BBD927 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		66D920DC27B876B300684017 /* homeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = homeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,10 +59,11 @@
 			isa = PBXGroup;
 			children = (
 				66D920E327B876B300684017 /* ViewController.swift */,
-				66256F4727C6D5850000B025 /* NotificationViewController.swift */,
+				66256F4727C6D5850000B025 /* PickerViewController.swift */,
 				66D920F327B87D1C00684017 /* ToDoListViewController.swift */,
 				66D920F527B88E0000684017 /* InventoryViewController.swift */,
 				66D465AF27CEBB2F00BBD927 /* TestDelegateViewController.swift */,
+				669B107A27D6B3ED00017CE3 /* ReminderViewController.swift */,
 			);
 			path = Controlers;
 			sourceTree = "<group>";
@@ -67,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				66D465B727D007AD00BBD927 /* Protocols.swift */,
+				669B107C27D6B68800017CE3 /* ReminderModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -99,15 +105,15 @@
 		66D920DE27B876B300684017 /* homeApp */ = {
 			isa = PBXGroup;
 			children = (
+				66D920ED27B876B400684017 /* Info.plist */,
+				66D920EA27B876B400684017 /* LaunchScreen.storyboard */,
+				66D920E827B876B400684017 /* Assets.xcassets */,
+				66D920E527B876B300684017 /* Main.storyboard */,
 				66D920DF27B876B300684017 /* AppDelegate.swift */,
 				66D920E127B876B300684017 /* SceneDelegate.swift */,
 				66D465B327CECF0000BBD927 /* Models */,
 				66D465B427CECF2900BBD927 /* Views */,
 				66D465B227CECECC00BBD927 /* Controlers */,
-				66D920E527B876B300684017 /* Main.storyboard */,
-				66D920E827B876B400684017 /* Assets.xcassets */,
-				66D920EA27B876B400684017 /* LaunchScreen.storyboard */,
-				66D920ED27B876B400684017 /* Info.plist */,
 			);
 			path = homeApp;
 			sourceTree = "<group>";
@@ -185,11 +191,13 @@
 			files = (
 				66D920E427B876B300684017 /* ViewController.swift in Sources */,
 				66D9212527B94B4200684017 /* CustomCollectionViewCell.swift in Sources */,
+				669B107D27D6B68800017CE3 /* ReminderModel.swift in Sources */,
+				669B107B27D6B3ED00017CE3 /* ReminderViewController.swift in Sources */,
 				66D920E027B876B300684017 /* AppDelegate.swift in Sources */,
 				66D920F627B88E0000684017 /* InventoryViewController.swift in Sources */,
 				66D465B027CEBB2F00BBD927 /* TestDelegateViewController.swift in Sources */,
 				66D465B827D007AD00BBD927 /* Protocols.swift in Sources */,
-				66256F4827C6D5850000B025 /* NotificationViewController.swift in Sources */,
+				66256F4827C6D5850000B025 /* PickerViewController.swift in Sources */,
 				66D9212327B9234700684017 /* DataModel.xcdatamodeld in Sources */,
 				66D920E227B876B300684017 /* SceneDelegate.swift in Sources */,
 				66D920F427B87D1C00684017 /* ToDoListViewController.swift in Sources */,

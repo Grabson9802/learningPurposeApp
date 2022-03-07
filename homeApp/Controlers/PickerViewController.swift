@@ -18,7 +18,7 @@ struct TimeSettings {
     }
 }
 
-class NotificationViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource {
+class PickerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource {
     
     private let tableView = UITableView()
     private let pickerView = UIPickerView()

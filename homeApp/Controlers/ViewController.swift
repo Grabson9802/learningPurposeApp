@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     private let toDoButton = UIButton()
     private let inventoryButton = UIButton()
     private let tableViewButton = UIButton()
+    private let reminderButton = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,11 +24,22 @@ class ViewController: UIViewController {
         view.addSubview(toDoButton)
         view.addSubview(inventoryButton)
         view.addSubview(tableViewButton)
+        view.addSubview(reminderButton)
         
         setupToDoListButton()
         setupInventoryButton()
         setupNotificationButton()
         setupTableViewButton()
+        setupReminderButton()
+    }
+    
+    private func setupReminderButton() {
+        reminderButton.translatesAutoresizingMaskIntoConstraints = false
+        reminderButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        reminderButton.topAnchor.constraint(equalTo: inventoryButton.bottomAnchor, constant: 10).isActive = true
+        reminderButton.setTitle("Reminder", for: .normal)
+        reminderButton.setTitleColor(.label, for: .normal)
+        reminderButton.addTarget(self, action: #selector(reminderButtonDidPress), for: .touchUpInside)
     }
     
     private func setupTableViewButton() {
@@ -66,6 +78,12 @@ class ViewController: UIViewController {
         inventoryButton.addTarget(self, action: #selector(inventoryButtonTapped), for: .touchUpInside)
     }
     
+    @objc func reminderButtonDidPress() {
+        let rootVC = ReminderViewController()
+        let navVC = UINavigationController(rootViewController: rootVC)
+        present(navVC, animated: true, completion: nil)
+    }
+    
     @objc func tableViewButtonDidPress() {
         let rootVC = TestDelegateViewController()
         let navVC = UINavigationController(rootViewController: rootVC)
@@ -73,7 +91,7 @@ class ViewController: UIViewController {
     }
     
     @objc func notificationButtonTapped() {
-        let rootVC = NotificationViewController()
+        let rootVC = PickerViewController()
         rootVC.title = "Notification"
         let navVC = UINavigationController(rootViewController: rootVC)
         
